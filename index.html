@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Hanshin University">
-    <meta name="subject" content="Hanshin University-Main"> 
+    <meta name="subject" content="Hanshin University-Main">
     <meta name="publisher" content="jch">
     <meta name="location" content="Osan Korea">
     <meta name="keyword" content="university, Osan, korea">
@@ -23,7 +24,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -31,13 +32,16 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/indexStyle.css">
 
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="js/mainScript.js" defer></script>
     <title>한신대학교-메인</title>
-    
+
 </head>
+
 <body>
     <div id="wrap">
         <ul id="skip">
@@ -48,18 +52,47 @@
         <div id="header">
             <div class="headerwrap">
                 <div class="header_utill">
+                    <div class="portal">
+                        <a href="#" tabindex="1">포털</a>
+                    </div>
                     <ul class="container">
-                        <li><a href="#">포털</a></li>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">로그인</a></li>
-                        <li><a href="#">회원가입</a></li>
-                        <li><a href="#">LANGUAGE<i></i></a></li>
+                        <li><a href="#" tabindex="2">HOME</a></li>
+                        <li><a href="#" tabindex="4">로그인</a></li>
+                        <li><a href="#" tabindex="5">회원가입</a></li>
+                        <li class="lang">
+                            <a href="#" tabindex="6">LANGUAGE
+                                <i></i>
+                            </a>
+                            <div>
+                                <a href="#" tabindex="7">english</a>
+                                <a href="#" tabindex="8">chinese</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-            </div>  
+                <div class="depth_wrap">
+                    <div class="depth_area">
+                        <div class="logo">
+                            <h1>한신대학교</h1>
+                        </div>
+                        <div class="depth_list">
+                            <ul>
+                                <li>한신소개</li>
+                                <li>입학안내</li>
+                                <li>대학/대학원</li>
+                                <li>학사행정안내</li>
+                                <li>대학생활</li>
+                                <li>커뮤니티</li>
+                                <li class="site_map">전체사이트맵</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="main"></div>
         <div id="footer"></div>
     </div>
 </body>
+
 </html>
