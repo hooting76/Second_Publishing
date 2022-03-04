@@ -28,7 +28,7 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 .headerwrap .header_utill .pc .container li.lang{z-index: 5;}
 .headerwrap .header_utill .pc .container li.lang div{position: absolute;  width: 100%; height: auto; display: grid;}
 .headerwrap .header_utill .pc .container li.lang>div>a{width: 100%; height: 0; background: #291659; color: #fff; }
-.headerwrap .header_utill .pc .container li.lang:hover>div>a{height: 30px; transition: .3s; }
+.headerwrap .header_utill .pc .container li.lang:hover>div>a{height: 30px; transition: .3s; text-transform: uppercase;}
 
 .headerwrap .header_utill .pc .container li a i{background: url(../img/arr_lang_down.gif) no-repeat; width: 12px; height: 9px;display: inline-block; margin-left: 5px; transition: .3s;}
 .headerwrap .header_utill .pc .container li:last-child:hover a i{background: url(../img/arr_lang_down.gif) no-repeat; transform: rotate(180deg); width: 12px; height: 9px; display: inline-block; margin-left: 5px;}
@@ -47,7 +47,7 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 .headerwrap .header_utill .mobile .menu_list_btn .lang a i{background: url(../img/arr_lang_down.gif) no-repeat; width: 12px; height: 9px;display: inline-block; margin-left: 5px; transition: .3s}
 .headerwrap .header_utill .mobile .menu_list_btn .lang:hover a i{transform: rotate(180deg);}
 #menu_list{display: none; background-color: #291659; color: #fff; border: none; text-align: center;}
-
+.mobile .menu_list_btn>.lang>div{text-transform: uppercase;}
 
 
 /* 댑스영역 */
@@ -57,20 +57,20 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 .logo{background: url(../img/logo.jpg) no-repeat; width: 218px; height: 43px;}
 .depth_list>h1{display: none;}
 
-.depth_list{ width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.depth_list>ul>li{}
+.depth_list{ width: 100%; display: flex; justify-content: space-between; align-items: center; margin: 0 1em;}
 .depth_list>ul>li>a>h2{font-size: 22px; font-weight: bold; display: inline-block; padding: 15px 15px}
 /* .depth_list>ul>li>a:hover+.depth_height:hover{display: block;} */
 /* .depth_list>ul>li>a:hover+.depth_height:hover>.depth_inner>.depth_main{display: block;} */
-.depth_list>ul>li>a:hover+.depth_height{height: 40em;}
+.depth_list>ul>li>a:hover+.depth_height{height: 40em; z-index: 5;}
 .depth_list>ul>li>a:hover+.depth_height>.depth_inner>.depth_main{display: block;}
+.depth_list>ul>li>a:hover+.depth_height>.depth_inner>.depth_side{display: block;}
 .site_map{background: url(../img/btn_sitemap.png)no-repeat; width: 52px; height: 52px;}
 .site_map a{width: 100%; height: 100%; display: block;}
 
-.depth_height{position: absolute; top: 83px; left: 0; height: 0; width: 100%; transition: .3s;}
+.depth_height{position: absolute; top: 93px; left: 0; height: 0; width: 100%; transition: .3s;}
 .depth_inner{width: 1400px; height: 100%; margin: 0 auto; position: relative; display: flex;}
 .depth_side, .depth_main{position: absolute; height: auto;}
-.depth_side { left: 0; height: 100%; width: 33%; background:#756ab7; text-align: right; color: #fff;}
+.depth_side { left: 0; height: 100%; width: 33%; background:#756ab7; text-align: right; color: #fff; display: none;}
 .depth_side>li{margin-right: 1em;}
 .depth_side>li:first-child{font-size: 3em; margin-top: 2.5em;}
 .depth_side>li:last-child{font-size: 2em; display: inline-block; width: 65%; margin-top: 1em;}
@@ -80,27 +80,55 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 .depth_title{background-color: #f5f2fc; font-size: 15px; padding: 10px 20px; width: 25%; color: #291659;}
 
 
+/* 모바일화면 뎁스 */
+#sel_depth{width: 10em; height: 2.5em; background: #291659; color: white; border: none; border-radius: 15px; text-align: center; display: none; cursor: pointer;}
+.headerwrap .header_utill .mobile .menu_list_btn .lang:hover a i{transform: rotate(180deg); width: 12px; height: 9px; display: none; margin-left: 5px; transition: .3s;}
 
+/* 매인영역 */
+/* 매인베너 */
+#main{width: 100%; height: auto;}
+.banner_inner {position: relative; width: 100%; height: 700px; overflow: hidden;} 
+.banner_inner ul {width: 100%;height: 100%;margin: 0 auto; } 
+
+/* 배너 양옆 화살표버튼 */
+.banner_inner .left_Btn {position: absolute; top: 50%; left: 7em; transform: translateY(-50%); scale: 1.5;} 
+.banner_inner .right_Btn {position: absolute; top: 50%; right: 7em; transform: translateY(-50%); scale: 1.5;} 
+
+/* 배너 이미지 */
+.banner_inner ul li {width: 100%;height: 100%;font-size: 18px;} 
+
+/* 배너 하단 단추 */
+.banner_inner ul .pager{width: auto; height: 30px; position: absolute;bottom: 10%; left: 50%; transform: translateX(-50%);}
+.banner_inner ul .pager span.on{width: 15px; height: 15px; background: #fff; border: 1px solid #fff; border-radius: 50%; display: inline-block;cursor: pointer;}
+.banner_inner ul .pager span{border: 2px solid #fff; border-radius: 50%; width: 13px; height: 13px; display: inline-block; cursor: pointer;}
+
+/* 퀵메뉴 */
+.quick_menu{position: fixed; top: 50%; right: 0; width: 7em; height: 8em; background: #ddd; z-index: 999; transform: translateY(-50%);}
 
 @media screen and (max-width:1300px) {
     .depth_height{display: none;}
+    .banner_inner{display: none;}
+}
+@media screen and (max-width:1040px) {
+    .depth_list ul li a h2{font-size: 18px; }
 }
 @media screen and (max-width:940px) {
-    .depth_list ul a h2{font-size: 18px; }
+    .depth_list ul li a h2{font-size: 1em; }
 }
-@media screen and (max-width:830px) {
-    .depth_list ul a h2{font-size: 1em; }
+@media screen and (max-width:810px) {
+    .depth_list ul li a h2{font-size: 12px; }
 }
-@media screen and (max-width:705px) {
-
+@media screen and (max-width:775px) {
+    .depth_list ul{display: none;}
+    #sel_depth{display: inline-block;}
 }
 @media screen and (max-width:526px) {
     .header_utill>.pc{display: none;}
     .header_utill>.mobile{display: flex;}
-    #menu_list{display: inline-block;}
+    #menu_list{display: inline-block; height: 2.5em; margin-top: 5px; padding: 5px 0;}
     .mobile .menu_list_btn{display: flex; width: 100%; justify-content: space-between;}
     .headerwrap .header_utill .mobile .menu_list_btn .lang{display: block; margin-right: 15px;}
-    .headerwrap .header_utill .mobile .menu_list_btn .lang:hover a i{transform: rotate(180deg); width: 12px; height: 9px; display: inline-block; margin-left: 5px; transition: .3s;}
+    .headerwrap .header_utill .mobile .menu_list_btn .lang:hover a i{display: inline-block; ;}
     .headerwrap .header_utill .mobile .menu_list_btn .lang > a:first-child{display: inline-block;}
-    .mobile .menu_list_btn>.lang>.div{display: block;}
+    .mobile .menu_list_btn>.lang>div{display: block;}
 }
