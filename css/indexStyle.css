@@ -79,6 +79,10 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 .depth_main>ul>li:not(.title){width: 60%; margin: 5px auto 0 auto; } 
 .depth_title{background-color: #f5f2fc; font-size: 15px; padding: 10px 20px; width: 25%; color: #291659;}
 
+/* 댑스메뉴 호버시 강조표시 */
+.depth_list>ul>li>a{position: relative;}
+.depth_list>ul>li>a::after{content: ''; background: url(../img/icn_a_1_active.png) no-repeat; width: 18px; height: 0px;display: inline-block; position: absolute; top: -1rem; left: 0; transition: all .2s;}
+.depth_list>ul>li>a:hover:after{height: 13px;}
 
 /* 모바일화면 뎁스 */
 #sel_depth{width: 10em; height: 2.5em; background: #291659; color: white; border: none; border-radius: 15px; text-align: center; display: none; cursor: pointer;}
@@ -86,8 +90,8 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 
 /* 매인영역 */
 /* 매인베너 */
-#main{width: 100%; height: auto;}
-.banner_inner {position: relative; width: 100%; height: 700px; overflow: hidden;} 
+#main{width: 100%; height: auto; position: relative;}
+.banner_inner {position: absolute; width: 100%; height: 700px; overflow: hidden;} 
 .banner_inner ul {width: 100%;height: 100%;margin: 0 auto; } 
 
 /* 배너 양옆 화살표버튼 */
@@ -96,6 +100,7 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 
 /* 배너 이미지 */
 .banner_inner ul li {width: 100%;height: 100%;font-size: 18px;} 
+.banner_inner ul li img{display: block;}
 
 /* 배너 하단 단추 */
 .banner_inner ul .pager{width: auto; height: 30px; position: absolute;bottom: 10%; left: 50%; transform: translateX(-50%);}
@@ -107,7 +112,9 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 
 @media screen and (max-width:1300px) {
     .depth_height{display: none;}
-    .banner_inner{display: none;}
+    /* .banner_inner{display: none;} */
+    .quick_menu{display: none;}
+
 }
 @media screen and (max-width:1040px) {
     .depth_list ul li a h2{font-size: 18px; }
