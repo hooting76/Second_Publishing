@@ -59,8 +59,6 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 
 .depth_list{ width: 100%; display: flex; justify-content: space-between; align-items: center; margin: 0 1em;}
 .depth_list>ul>li>a>h2{font-size: 22px; font-weight: bold; display: inline-block; padding: 15px 15px}
-/* .depth_list>ul>li>a:hover+.depth_height:hover{display: block;} */
-/* .depth_list>ul>li>a:hover+.depth_height:hover>.depth_inner>.depth_main{display: block;} */
 .depth_list>ul>li>a:hover+.depth_height{height: 40em; z-index: 5;}
 .depth_list>ul>li>a:hover+.depth_height>.depth_inner>.depth_main{display: block;}
 .depth_list>ul>li>a:hover+.depth_height>.depth_inner>.depth_side{display: block;}
@@ -95,29 +93,32 @@ body{font-family: 'Noto Sans KR', sans-serif;}
 .banner_inner ul {width: 100%;height: 100%;margin: 0 auto; } 
 
 /* 배너 양옆 화살표버튼 */
-.banner_inner .left_Btn {position: absolute; top: 50%; left: 7em; transform: translateY(-50%); scale: 1.5;} 
-.banner_inner .right_Btn {position: absolute; top: 50%; right: 7em; transform: translateY(-50%); scale: 1.5;} 
+.banner_inner .left_Btn {position: absolute; top: 50%; left: 7em; transform: translateY(-50%); scale: 1.5; z-index: 50;} 
+.banner_inner .right_Btn {position: absolute; top: 50%; right: 7em; transform: translateY(-50%); scale: 1.5; z-index: 50;} 
 
 /* 배너 이미지 */
-.banner_inner ul li {width: 100%;height: 100%;font-size: 18px;} 
-.banner_inner ul li img{display: block;}
+.banner_inner ul li {width: 100%;height: 100%;font-size: 18px;position: relative;} 
+.banner_inner ul li img{display: block; }
 
-/* 배너 하단 단추 */
-.banner_inner ul .pager{width: auto; height: 30px; position: absolute;bottom: 10%; left: 50%; transform: translateX(-50%);}
+/* 배너 이미지 내의 텍스트 */
+.banner_inner ul li>span{position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); text-align: center; font-size: 4rem; font-weight: 700; color: white; width: 100%;}
+.banner_inner ul li:nth-child(2){color: #333;}
+
+/* 배너 페이저 */
+.banner_inner ul .pager{width: auto; height: 30px; position: absolute;bottom: 25%; left: 50%; transform: translateX(-50%);}
 .banner_inner ul .pager span.on{width: 15px; height: 15px; background: #fff; border: 1px solid #fff; border-radius: 50%; display: inline-block;cursor: pointer;}
 .banner_inner ul .pager span{border: 2px solid #fff; border-radius: 50%; width: 13px; height: 13px; display: inline-block; cursor: pointer;}
 
 /* 퀵메뉴 */
-.quick_menu{position: fixed; top: 50%; right: 0; width: 7em; height: 8em; background: #ddd; z-index: 999; transform: translateY(-50%);}
+.quick_menu{position: fixed; top: 50%; right: 0; width: 7em; height: 8em; z-index: 999; background: #ddd;}
 
 @media screen and (max-width:1300px) {
     .depth_height{display: none;}
-    /* .banner_inner{display: none;} */
     .quick_menu{display: none;}
-
 }
 @media screen and (max-width:1040px) {
     .depth_list ul li a h2{font-size: 18px; }
+    .banner_inner{display: none;}
 }
 @media screen and (max-width:940px) {
     .depth_list ul li a h2{font-size: 1em; }
