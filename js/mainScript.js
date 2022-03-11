@@ -17,8 +17,7 @@ function videoResizeFn(){
     if(winW>imgW){// 창너비보다 이미지너비가 작을때
         $('.banner_inner ul li img').css({width:winW});
     }
-
-}
+};
 // 배너 이미지 리사이즈 끝
 
 // 배너 이미지슬라이더
@@ -38,7 +37,7 @@ function slide(){
     timer = setInterval(function(){
         let prev = moving2.eq(current);
         let left = pager.eq(current);
-        prev.fadeOut(500);
+        prev.fadeOut(1000);
         left.removeClass('on');
         current++;
 
@@ -48,13 +47,20 @@ function slide(){
 
         let next = moving2.eq(current);
         let right = pager.eq(current);
-        next.fadeIn(500);
+        next.fadeIn(1000);
         right.addClass('on');
     },4000);
 };
 
-// 슬라이더 영역 호버시 자동재생 멈춤
-$('.banner_inner').hover(function(){
+// 화살표 호버시 자동재생 멈춤
+$('.banner_inner>a').hover(function(){
+    clearInterval(timer);
+}, function(){
+    slide();
+});
+
+// pager호버시 자동재생멈춤
+$('.pager').hover(function(){
     clearInterval(timer);
 }, function(){
     slide();
@@ -135,3 +141,26 @@ pager.click(function(){
         slidePager2(i);
     }
 });
+// 배너 이미지슬라이더 끝.
+
+// 퀵메뉴 관련 시작.
+let q_btn = $('.q_menu>a');
+let q_main = $('.quick_menu_remote');
+// console.log(q_btn); 확인
+// console.log(q_main); 확인
+
+q_btn.click(function(){
+    let leftSize = q_main.css("left");
+    let arr_q = $('.quick_menu>img');
+    // console.log(leftSize); //n px단위로 들어옴 <- 콘솔찍는걸 생활화 하자...
+
+    if(leftSize=='370px'){
+        q_main.css("left",0);
+        arr_q.css("transform","rotate(180deg)");
+    }else if(leftSize=='0px'){
+        q_main.css("left","370px");
+        arr_q.css("transform","rotate(0)");
+    }
+});
+// 퀵메뉴 끝.
+
