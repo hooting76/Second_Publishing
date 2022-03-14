@@ -1,18 +1,18 @@
 // 배너이미지 리사이즈 기능
-setInterval(videoResizeFn,100);
+setInterval(imgResizeFn,150);
 $(window).resize(function(){
-    videoResizeFn();
+    imgResizeFn();
 });
 
-function videoResizeFn(){
+function imgResizeFn(){
     winH=$(window).innerHeight();
     winW=$(window).innerWidth();
     imgH=$('.banner_inner ul li img').innerHeight();
-    // console.log(imgH); //<-값은 잘 들어옴
+    console.log(imgH); //<-값은 잘 들어옴 이미지 높이
     imgW=$('.banner_inner ul li img').innerWidth();
-    // console.log(imgW);  //<-값은 잘 들어옴
+    console.log(imgW);  //<-값은 잘 들어옴 이미지 너비
 
-    $('.banner_inner ul li img').css({width:100+"%", height:winH});
+    $('.banner_inner ul li img').css({width:100+"%", height:100+"%"});
 
     if(winW>imgW){// 창너비보다 이미지너비가 작을때
         $('.banner_inner ul li img').css({width:winW});
