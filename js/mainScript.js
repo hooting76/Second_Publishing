@@ -8,9 +8,9 @@ function imgResizeFn(){
     winH=$(window).innerHeight();
     winW=$(window).innerWidth();
     imgH=$('.banner_inner ul li img').innerHeight();
-    console.log(imgH); //<-값은 잘 들어옴 이미지 높이
+    // console.log(imgH); //<-값은 잘 들어옴 이미지 높이
     imgW=$('.banner_inner ul li img').innerWidth();
-    console.log(imgW);  //<-값은 잘 들어옴 이미지 너비
+    // console.log(imgW);  //<-값은 잘 들어옴 이미지 너비
 
     $('.banner_inner ul li img').css({width:100+"%", height:100+"%"});
 
