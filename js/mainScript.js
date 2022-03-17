@@ -32,45 +32,26 @@ let pager = $('.pager span');
 pager.eq(0).addClass('on');
 
 // 슬라이더 자동재생
-slide();
-function slide(){
-    timer = setInterval(function(){
-        let prev = moving2.eq(current);
-        let left = pager.eq(current);
-        prev.fadeOut(1000);
-        left.removeClass('on');
-        current++;
+setInterval (function(){
+    let prev = moving2.eq(current);
+    let left = pager.eq(current);
+    fadeSlide(prev,1,0);
+    left.removeClass('on');
+    current++;
 
-        if(current ==moving2.size()){
-            current=0;
-        }
-
-        let next = moving2.eq(current);
-        let right = pager.eq(current);
-        next.fadeIn(1000);
-        right.addClass('on');
-    },4000);
-};
-
-// 화살표 호버시 자동재생 멈춤
-$('.banner_inner>a').hover(function(){
-    clearInterval(timer);
-}, function(){
-    slide();
-});
-
-// pager호버시 자동재생멈춤
-$('.pager').hover(function(){
-    clearInterval(timer);
-}, function(){
-    slide();
-});
+    if(current==moving2.size()) current=0;
+    
+    let next = moving2.eq(current);
+    let right = pager.eq(current);
+    fadeSlide(next,0,1);
+    right.addClass('on');
+},5000);
 
 // 화살표버튼 관련
 arr_right.click(function(){
     let prev = moving2.eq(current);
     let arr_left = pager.eq(current);
-    prev.fadeOut(500);
+    fadeSlide(prev,1,0);
     arr_left.removeClass('on');
     current++;
 
@@ -80,14 +61,14 @@ arr_right.click(function(){
 
     let next = moving2.eq(current);
     let arr_right = pager.eq(current);
-    next.fadeIn(500);
+    fadeSlide(next,1,0);
     arr_right.addClass('on');
 });
 
 arr_left.click(function(){
     let prev = moving2.eq(current);
     let arr_left = pager.eq(current);
-    prev.fadeOut(500);
+    fadeSlide(prev,1,0);
     arr_left.removeClass('on');
     current--;
 
@@ -97,9 +78,30 @@ arr_left.click(function(){
 
     let next = moving2.eq(current);
     let arr_right = pager.eq(current);
-    next.fadeIn(500);
+    fadeSlide(next,1,0);
     arr_right.addClass('on');
 });
+
+function fadeSlide(tg,start,end){
+    tg.css('opacity', start).stop().animate({opacity:end},500);
+}
+
+
+// 화살표 호버시 자동재생 멈춤
+$('.banner_inner>a').hover(function(){
+    clearInterval();
+}, function(){
+    setInterval();
+});
+
+// pager호버시 자동재생멈춤
+$('.pager').hover(function(){
+    clearInterval();
+}, function(){
+    setInterval();
+});
+
+
 
 // 페이저버튼으로 이동
 function slidePager1(i){
