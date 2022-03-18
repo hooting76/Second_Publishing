@@ -11,12 +11,28 @@ function imgResizeFn(){
     // console.log(imgH); //<-값은 잘 들어옴 이미지 높이
     imgW=$('.banner_inner ul li img').innerWidth();
     // console.log(imgW);  //<-값은 잘 들어옴 이미지 너비
+    imgH_ratio = winW*(0.35); // 이미지 가로비율
 
-    $('.banner_inner ul li img').css({width:100+"%", height:100+"%"});
+    // console.log(imgH_ratio); //정상작동
+    // 이미지크기 초기화
+    $('.banner_inner ul li').css({width:100+"%", height:100+"%"});
 
     if(winW>imgW){// 창너비보다 이미지너비가 작을때
         $('.banner_inner ul li img').css({width:winW});
+        $('.banner_inner ul li img').css({height:imgH_ratio});
+        $('.banner').css({height:imgH_ratio});
+        $('.banner_inner').css({height:imgH_ratio});
+        $('.banner_inner ul').css({height:imgH_ratio});
+        $('.banner_inner ul li').css({height:imgH_ratio});
+    }else{
+        $('.banner_inner ul li img').css({width:winW});
+        $('.banner_inner ul li img').css({height:imgH_ratio});
+        $('.banner').css({height:imgH_ratio});
+        $('.banner_inner').css({height:imgH_ratio});
+        $('.banner_inner ul').css({height:imgH_ratio});
+        $('.banner_inner ul li').css({height:imgH_ratio});
     }
+    
 };
 // 배너 이미지 리사이즈 끝
 
@@ -32,20 +48,23 @@ let pager = $('.pager span');
 pager.eq(0).addClass('on');
 
 // 슬라이더 자동재생
-setInterval (function(){
-    let prev = moving2.eq(current);
-    let left = pager.eq(current);
-    fadeSlide(prev,1,0);
-    left.removeClass('on');
-    current++;
-
-    if(current==moving2.size()) current=0;
+slide();
+function slide(){
+    timer = setInterval(function(){
+        let prev = moving2.eq(current);
+        let left = pager.eq(current);
+        fadeSlide(prev,1,0);
+        left.removeClass('on');
+        current++;
     
-    let next = moving2.eq(current);
-    let right = pager.eq(current);
-    fadeSlide(next,0,1);
-    right.addClass('on');
-},5000);
+        if(current==moving2.size()) current=0;
+        
+        let next = moving2.eq(current);
+        let right = pager.eq(current);
+        fadeSlide(next,0,1);
+        right.addClass('on');
+    },5000);
+};
 
 // 화살표버튼 관련
 arr_right.click(function(){
@@ -61,7 +80,7 @@ arr_right.click(function(){
 
     let next = moving2.eq(current);
     let arr_right = pager.eq(current);
-    fadeSlide(next,1,0);
+    fadeSlide(next,0,1);
     arr_right.addClass('on');
 });
 
@@ -78,29 +97,23 @@ arr_left.click(function(){
 
     let next = moving2.eq(current);
     let arr_right = pager.eq(current);
-    fadeSlide(next,1,0);
+    fadeSlide(next,0,1);
     arr_right.addClass('on');
 });
 
-function fadeSlide(tg,start,end){
-    tg.css('opacity', start).stop().animate({opacity:end},500);
-}
-
-
 // 화살표 호버시 자동재생 멈춤
 $('.banner_inner>a').hover(function(){
-    clearInterval();
+    clearInterval(timer);
 }, function(){
-    setInterval();
+    slide();
 });
 
 // pager호버시 자동재생멈춤
 $('.pager').hover(function(){
-    clearInterval();
+    clearInterval(timer);
 }, function(){
-    setInterval();
+    slide();
 });
-
 
 
 // 페이저버튼으로 이동
@@ -112,8 +125,10 @@ function slidePager1(i){
 
     // console.log(nextEl);
 
-    currentEl.fadeOut(500);
-    nextEl.fadeIn(500);
+    fadeSlide(currentEl,1,0)
+    // currentEl.fadeOut(500);
+    fadeSlide(nextEl,0,1)
+    // nextEl.fadeIn(500);
     current =i;
 }
 
@@ -125,9 +140,15 @@ function slidePager2(i){
 
     // console.log(nextEl);
 
-    currentEl.fadeOut(500);
-    nextEl.fadeIn(500);
+    fadeSlide(currentEl,1,0)
+    // currentEl.fadeOut(500);
+    fadeSlide(nextEl,0,1)
+    // nextEl.fadeIn(500);
     current =i;
+}
+
+function fadeSlide(tg,start,end){
+    tg.css('opacity', start).stop().animate({opacity:end},500);
 }
 
 pager.click(function(){
@@ -165,4 +186,34 @@ q_btn.click(function(){
     }
 });
 // 퀵메뉴 끝.
+
+// 탭 메뉴
+let tab = $('.notice_title_area>.notice_title_text');
+let tabContent = $('.notice_title_text>ul');
+let width = $(window).innerWidth();
+tabContent.eq(0).css('display','flex');
+
+tab.click(function(){
+    let tg = $(this);
+    let idx = tg.index();
+
+    // console.log(tab);
+    // console.log(tabContent);
+    // console.log(tg);
+    // console.log(idx);
+    // console.log(tab.find('a'));
+
+    console.log(width);
+    tab.find('a').removeClass('on');
+    tg.find('a').addClass('on');
+
+    tabContent.css('display','none');
+    tabContent.eq(idx).css('display','flex');
+
+    if(idx==2){
+        $('.main_mid').css('height','900px');
+    }else{
+        $('.main_mid').css('height','1600px');
+    }
+});
 
