@@ -187,9 +187,9 @@ q_btn.click(function(){
 });
 // 퀵메뉴 끝.
 
-// 탭 메뉴
-let tab = $('.notice_title_area>.notice_title_text');
-let tabContent = $('.notice_title_text>ul');
+// 탭 메뉴 1
+let tab = $('.main_mid_inner>.notice_title_area>.notice_title_text');
+let tabContent = $('.main_mid_inner>.notice_title_area>.notice_title_text>ul');
 let width = $(window).innerWidth();
 tabContent.eq(0).css('display','flex');
 
@@ -209,11 +209,29 @@ tab.click(function(){
 
     tabContent.css('display','none');
     tabContent.eq(idx).css('display','flex');
-
-    if(idx==2){
-        $('.main_mid').css('height','900px');
-    }else{
-        $('.main_mid').css('height','1600px');
-    }
 });
 
+
+// 탭 메뉴 2
+let tab2 = $('.main_mid_bot_inner>.notice_title_area>.notice_title_text');
+let tabContent2 = $('.main_mid_bot_inner>.notice_title_area>.notice_title_text>ul');
+let width2 = $(window).innerWidth();
+tabContent.eq(0).css('display','flex');
+
+tab2.click(function(){
+    let tg = $(this);
+    let idx = tg.index();
+
+    // console.log(tab);
+    // console.log(tabContent);
+    // console.log(tg);
+    // console.log(idx);
+    // console.log(tab.find('a'));
+    // console.log(width2);
+    
+    tab2.find('a').removeClass('on');
+    tg.find('a').addClass('on');
+
+    tabContent2.css('display','none');
+    tabContent2.eq(idx).css('display','flex');
+});
