@@ -591,4 +591,6 @@ body{font-family: 'Noto Sans KR', sans-serif;}
     .main_mid_bot .main_mid_bot_inner>.notice_title_area>.notice_title_text>ul>li{width: 100%;}
 
     .main_mid_bot>.main_mid_bot_inner>.notice_title_area>.notice_title_text>.hs_in_press>li{width: 40%;}
+
+    .card_text>a>h5{font-size:.5rem;}
 }
